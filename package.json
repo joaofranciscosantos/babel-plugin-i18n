@@ -10,15 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joaofranciscosantos"
+    "url": "https://github.com/joaofranciscosantos/babel-plugin-i18n.git"
   },
+  "bugs": "https://github.com/joaofranciscosantos/babel-plugin-i18n/issues",
   "keywords": [
     "i18n",
     "translator",
     "babel"
   ],
-  "author": "João Santos",
-  "license": "ISC",
+  "author": {
+    "name": "João Francisco Santos",
+    "email": "joao.f.santos@tecnico.ulisboa.pt"
+  },
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.2"
