@@ -1,6 +1,6 @@
 module.exports = (path, {targetFunctionName, targetLanguage, dictionary}) => {
   if (path.node.callee.type === 'Identifier') {
-    const calleeName = path.node.callee.name.toLowerCase();
+    const calleeName = path.node.callee.name;
     const args = path.node.arguments;
     if (calleeName === targetFunctionName) {
       const keywordType = args && args[0] && args[0].type;
