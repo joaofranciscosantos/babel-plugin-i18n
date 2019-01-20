@@ -1,18 +1,12 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Efficient String Translator",
   "main": "index.js",
   "scripts": {
-    "start": "node test/runner test/sample.js",
     "test": "jest --coverage --detectOpenHandles"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/joaofranciscosantos/babel-plugin-i18n.git"
-  },
-  "bugs": "https://github.com/joaofranciscosantos/babel-plugin-i18n/issues",
   "keywords": [
     "i18n",
     "translator",
@@ -22,13 +16,15 @@
     "name": "João Francisco Santos",
     "email": "joao.f.santos@tecnico.ulisboa.pt"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaofranciscosantos/babel-plugin-i18n.git"
+  },
+  "bugs": "https://github.com/joaofranciscosantos/babel-plugin-i18n/issues",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "jest": "^23.6.0"
-  },
-  "directories": {
-    "__tests__": "__tests__"
   }
 }

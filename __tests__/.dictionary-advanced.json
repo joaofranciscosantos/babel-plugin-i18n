@@ -1,0 +1,13 @@
+{
+  "nadar": {
+    "en": "swimming",
+    "pt": "nadando"
+  },
+  "bolos": {
+    "pt": "cabra",
+    "en": "Benfica"
+  },
+  "Benfica": {
+    "en": "win"
+  }
+}
