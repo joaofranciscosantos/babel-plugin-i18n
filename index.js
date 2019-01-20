@@ -1,16 +1,15 @@
 const {readFileSync} = require('fs');
-const {join} = require('path');
+const {resolve} = require('path');
 
 module.exports = (context, input = {}) => {
-  const targetFilename = input.source || '.dictionary.json';
+  const targetFilename = input.source || '../.dictionary.json';
   const targetFunctionName = input.target || 'i18n';
   const targetLanguage = input.language || 'en';
-  const dictionary = JSON.parse(readFileSync(join(__dirname, targetFilename), 'utf8'));
+  const dictionary = JSON.parse(readFileSync(resolve(targetFilename), 'utf8'));
   return {
     visitor: {
       CallExpression: {
         enter: (path) => {
-          console.log('!', path.node.arguments)
           if (path.node.callee.type === 'Identifier') {
             const functionName = path.node.callee.name.toLowerCase();
             const arguments = path.node.arguments;
