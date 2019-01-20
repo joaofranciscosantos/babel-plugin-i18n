@@ -31,3 +31,32 @@ language: Defaults to `en`.
   ]
 }
 ```
+### Dictionary
+```json
+{
+  "keyword": {
+    "language": "translation"
+  },
+  "water": {
+    "pt": "água",
+    "es": "agua"
+  }
+}
+```
+
+### Examples
+```javascript
+let a = i18n('water', 'es');
+```
+transpiles to
+```javascript
+let a = "agua";
+```
+(To continue...)
+
+## Tests
+```bash
+npm t
+```
+
+## Future Work
