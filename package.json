@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node test/runner test/sample.js",
-    "test": "npm t"
+    "test": "jest --coverage --detectOpenHandles"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,10 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.2.2"
+    "@babel/core": "^7.2.2",
+    "jest": "^23.6.0"
   },
   "directories": {
-    "test": "test"
+    "__tests__": "__tests__"
   }
 }

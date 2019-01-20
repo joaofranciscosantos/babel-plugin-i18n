@@ -9,14 +9,14 @@ module.exports = (context, input = {}) => {
   return {
     visitor: {
       CallExpression: {
-        enter: (path) => {
+        enter: path => {
           if (path.node.callee.type === 'Identifier') {
-            const functionName = path.node.callee.name.toLowerCase();
-            const arguments = path.node.arguments;
-            if (functionName === targetFunctionName) {
-              const keywordType = arguments && arguments[0] && arguments[0].type;
-              const keyword = arguments && arguments[0] && arguments[0].value;
-              const language = (arguments && arguments[1] && arguments[1].value) || targetLanguage;
+            const calleeName = path.node.callee.name.toLowerCase();
+            const args = path.node.arguments;
+            if (calleeName === targetFunctionName) {
+              const keywordType = args && args[0] && args[0].type;
+              const keyword = args && args[0] && args[0].value;
+              const language = (args && args[1] && args[1].value) || targetLanguage;
               if ((keywordType !== 'StringLiteral') ||
                 (dictionary[keyword] === undefined) ||
                 (dictionary[keyword][language] === undefined)) {
