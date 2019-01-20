@@ -2,7 +2,7 @@ const {readFileSync} = require('fs');
 const {resolve} = require('path');
 
 module.exports = (context, input = {}) => {
-  const targetFilename = input.source || '../.dictionary.json';
+  const targetFilename = input.source || '.dictionary.json';
   const targetFunctionName = input.target || 'i18n';
   const targetLanguage = input.language || 'en';
   const dictionary = JSON.parse(readFileSync(resolve(targetFilename), 'utf8'));
