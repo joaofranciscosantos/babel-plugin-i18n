@@ -1,5 +1,6 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
+  "private": false,
   "version": "0.0.1",
   "description": "Efficient String Translator",
   "main": "index.js",
