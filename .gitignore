@@ -1,3 +1,7 @@
+.idea
+.dictionary.json
+test
+
 # Logs
 logs
 *.log

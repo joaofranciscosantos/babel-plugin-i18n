@@ -1,0 +1,25 @@
+{
+  "name": "babel-plugin-i18n",
+  "version": "0.0.1",
+  "description": "Efficient String Translator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node test/runner test/sample.js",
+    "test": "npm t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaofranciscosantos"
+  },
+  "keywords": [
+    "i18n",
+    "translator",
+    "babel"
+  ],
+  "author": "João Santos",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.2.2"
+  }
+}
