@@ -11,6 +11,11 @@ describe('When using babel-plugin-i18n module', () => {
     done();
   });
   it('', done => {
+    const {code} = transform('i18n(\'bolos\')', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    done();
+  });
+  it('', done => {
     const {code} = transform('i18n("bolos", null)', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`"${dictionary.bolos.en}";`);
     done();
@@ -55,7 +60,7 @@ describe('When using babel-plugin-i18n module', () => {
     expect(code).toBe(`(() => "${dictionary.bolos.en}")();`);
     done();
   });
-  it.skip('', done => {
+  it('', done => {
     const {code} = transform('i18n(i18n("bolos"))', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`"${dictionary.Benfica.en}";`);
     done();
@@ -85,7 +90,7 @@ describe('When using babel-plugin-i18n module', () => {
     expect(code).toBe(`1;`);
     done();
   });
-  it.skip('', done => {
+  it('', done => {
     const {code} = transform('i18n(-1)', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`-1;`);
     done();
@@ -146,7 +151,7 @@ describe('When using babel-plugin-i18n module', () => {
       done()
     }
   });
-  it.skip('', done => {
+  it('', done => {
     const {code} = transform('i18n(()=>{})', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`()=>{};`);
     done();

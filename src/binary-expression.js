@@ -1,4 +1,5 @@
-module.exports = ({path, inputType, args, dictionary, lang}) => {
+module.exports = ({args, dictionary, lang, operations}) => {
+  const inputType = args && args[0] && args[0].type;
   if (inputType === 'BinaryExpression') {
     const leftType = args[0].left.type;
     const leftValue = args[0].left.value;
@@ -8,12 +9,10 @@ module.exports = ({path, inputType, args, dictionary, lang}) => {
     if (operator === '+' && (leftType === 'StringLiteral' || rightType === 'StringLiteral')) {
       const binaryExpr = `${leftValue}${rightValue}`;
       if (dictionary[binaryExpr] === undefined || dictionary[binaryExpr][lang] === undefined) {
-        path.replaceWithSourceString(`"${binaryExpr}"`);
-        return true;
+        return { value: `"${binaryExpr}"`};
       }
-      path.replaceWithSourceString(`"${dictionary[binaryExpr][lang]}"`);
-      return true;
+      return { value: `"${dictionary[binaryExpr][lang]}"`};
     }
   }
-  return false
+  return {};
 };

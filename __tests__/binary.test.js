@@ -7,7 +7,7 @@ describe('When using babel-plugin-i18n module', () => {
   const source = join(__dirname, '.dictionary.json');
   it('', done => {
     const {code} = transform('i18n(1+1)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe('null;');
+    expect(code).toBe('1+1;');
     done();
   });
   it('', done => {

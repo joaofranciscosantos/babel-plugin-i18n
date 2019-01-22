@@ -1,6 +1,6 @@
 const {readFileSync} = require('fs');
 const {resolve} = require('path');
-const src = require('./src');
+const {runner} = require('./src/operations');
 
 module.exports = (context, input = {}) => {
   const dictionary = JSON.parse(readFileSync(resolve(input.source || '.dictionary.json'), 'utf8'))
@@ -9,7 +9,7 @@ module.exports = (context, input = {}) => {
   return {
     visitor: {
       CallExpression: {
-        enter: path => src(path, {target, language, dictionary})
+        enter: path => runner(path, {target, language, dictionary})
       }
     }
   }
