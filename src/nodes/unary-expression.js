@@ -11,6 +11,5 @@ module.exports = ({args, dictionary, lang, operations}) => {
     }
     return {value: unaryExpr};
   }
-
   return {};
 };

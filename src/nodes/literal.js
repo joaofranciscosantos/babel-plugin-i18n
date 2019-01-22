@@ -12,7 +12,7 @@ module.exports = ({args, dictionary, lang}) => {
     const value = args[0].value;
     return {value: value};
   }
-  if (inputType === 'NullLiteral' || inputType === undefined) {
+  if (inputType === 'NullLiteral') {
     return {value: null};
   }
   return {};

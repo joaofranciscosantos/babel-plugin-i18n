@@ -11,6 +11,31 @@ describe('When using babel-plugin-i18n module', () => {
     done();
   });
   it('', done => {
+    const {code} = transform('i18n(true ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(false ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(0 ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(1 ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n((("bolos")))', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    done();
+  });
+  it('', done => {
     const {code} = transform('i18n(\'bolos\')', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`"${dictionary.bolos.en}";`);
     done();
@@ -113,6 +138,46 @@ describe('When using babel-plugin-i18n module', () => {
   it('', done => {
     const {code} = transform('benfas("nadar")', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`benfas("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(false)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('let a = 1; i18n(++a)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('let a = 1; i18n(--a)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(this)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(true && false)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('let a = 1; i18n(a++)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('let a = 1; i18n(a--)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(true)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`i18n("nadar");`);
     done();
   });
   it('', done => {
