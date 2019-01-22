@@ -2,7 +2,7 @@
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
   "version": "0.0.5",
-  "description": "Efficient String Translator",
+  "description": "Efficient Multi-Language Translator for Babel",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --detectOpenHandles"
@@ -10,12 +10,15 @@
   "keywords": [
     "i18n",
     "translator",
-    "babel"
+    "babel-plugin",
+    "translation-manager",
+    "multi-language"
   ],
   "author": {
     "name": "João Francisco Santos",
     "email": "joao.f.santos@tecnico.ulisboa.pt"
   },
+  "homepage": "https://github.com/joaofranciscosantos/babel-plugin-i18n#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/joaofranciscosantos/babel-plugin-i18n.git"
