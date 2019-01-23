@@ -17,11 +17,11 @@ and add it to .babelrc as plugin:
 ```
 
 ### Plugin Options
-source: the location of dictionary file containing all translations. Defaults to `/.dictionary.json`.
+`source` the location of dictionary file containing all translations. Defaults to `/.dictionary.json`.
 
-target: which function is going to do the translation. Defaults to `i18n`. 
+`target` which function is going to do the translation. Defaults to `i18n`. 
 
-language: set a language. Defaults to `en`.
+`language` set a language. Defaults to `en`.
 ```json
 {
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "pt"}]]
