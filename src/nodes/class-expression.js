@@ -1,3 +1,3 @@
-module.exports = ({args, dictionary, lang, operations}) => {
+module.exports = (target, args, dictionary, lang, operations) => {
   return 'undefined';
 };

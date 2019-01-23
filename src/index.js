@@ -10,10 +10,10 @@ const nodes = {
   'CallExpression': require('./nodes/call-expression')
 };
 
-const operations = ({target, args, dictionary, lang, operations}) => {
+const operations = (target, args, dictionary, lang, operations) => {
   const nodeType = args && args[0] && args[0].type;
   const node = nodes[nodeType];
-  return node ? node({target, args, dictionary, lang, operations}) : 'undefined';
+  return node ? node(target, args, dictionary, lang, operations) : 'undefined';
 };
 
 module.exports = (path, {target, language, dictionary}) => {
@@ -22,7 +22,7 @@ module.exports = (path, {target, language, dictionary}) => {
     const args = path.node.arguments;
     if (calleeName === target) {
       const lang = (args && args[1] && args[1].value) || language;
-      const result = operations({target, args, dictionary, lang, operations});
+      const result = operations(target, args, dictionary, lang, operations);
       path.replaceWithSourceString(`${result}`);
       return;
     }

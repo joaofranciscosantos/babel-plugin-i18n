@@ -1,4 +1,4 @@
-module.exports = ({args, dictionary, lang, operations}) => {
+module.exports = (target, args, dictionary, lang, operations) => {
   const leftType = args[0].left.type;
   const leftValue = args[0].left.value;
   const operator = args[0].operator;
