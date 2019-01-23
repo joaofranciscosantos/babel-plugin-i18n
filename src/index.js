@@ -1,7 +1,7 @@
 const nodes = {
-  'StringLiteral': require('./nodes/literal'),
-  'NumericLiteral': require('./nodes/literal'),
-  'NullLiteral': require('./nodes/literal'),
+  'StringLiteral': require('./nodes/literals/string-literal'),
+  'NumericLiteral': require('./nodes/literals/numeric-literal'),
+  'NullLiteral': require('./nodes/literals/null-literal'),
   'UnaryExpression': require('./nodes/unary-expression'),
   'BinaryExpression': require('./nodes/binary-expression'),
   'ArrayExpression': require('./nodes/array-expression'),
@@ -11,15 +11,9 @@ const nodes = {
 };
 
 const operations = ({target, args, dictionary, lang, operations}) => {
-  const type = args && args[0] && args[0].type;
-  const node = nodes[type];
-  if (node) {
-    const {value} = node({target, args, dictionary, lang, operations});
-    if (value) {
-      return value;
-    }
-  }
-  return 'undefined';
+  const nodeType = args && args[0] && args[0].type;
+  const node = nodes[nodeType];
+  return node ? node({target, args, dictionary, lang, operations}) : 'undefined';
 };
 
 module.exports = (path, {target, language, dictionary}) => {
