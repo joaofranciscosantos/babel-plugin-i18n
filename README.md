@@ -5,7 +5,7 @@
 [![devDependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/dev-status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n?type=dev)
 [![Known Vulnerabilities](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n/badge.svg?targetFile=package.json)](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n?targetFile=package.json)
 
-# babel-plugin-18n
+# babel-plugin-i18n
 
 Efficient Multi-Language Translator for Babel.
 
@@ -51,10 +51,11 @@ and add it to .babelrc as plugin:
 
 ### Template
 ```bash
-i18n(expression[, string]); 
+i18n(expression[, string])
 ```
-- expression: Returns translated expression.
+- expression: any javascript expression.
 - (optional) string: Overrides the language set by plugin.
+- Returns translated expression.
 
 ##### Practical Examples
 ```bash
