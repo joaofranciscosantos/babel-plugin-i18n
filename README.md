@@ -35,7 +35,7 @@ language: set a language. Defaults to `en`.
     "language": "translation"
   },
   "water": {
-  	"en": "WateR",
+    "en": "WateR",
     "pt": "água",
     "es": "agua"
   }
