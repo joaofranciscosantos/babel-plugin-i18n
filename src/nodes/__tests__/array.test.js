@@ -1,7 +1,7 @@
 const {join} = require('path');
 const {transform} = require('@babel/core');
 const dictionary = require('../../__tests__/.dictionary.json');
-const plugin = require('../../../index.js');
+const plugin = require('../../..');
 
 describe('When using babel-plugin-i18n module', () => {
   const source = join(__dirname, '..', '..', '__tests__', '.dictionary.json');
