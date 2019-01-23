@@ -1,3 +1,9 @@
+[![GitHub version](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n.svg)](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n)
+![](https://img.shields.io/github/license/joaofranciscosantos/babel-plugin-i18n.svg)
+[![dependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n)
+[![devDependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/dev-status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n?type=dev)
+[![Known Vulnerabilities](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n/badge.svg?targetFile=package.json)](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n?targetFile=package.json)
+
 # babel-plugin-18n
 
 Efficient Multi-Language Translator for Babel.
