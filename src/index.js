@@ -1,4 +1,5 @@
 const nodes = {
+  'Identifier': require('./nodes/literals/identifier'),
   'StringLiteral': require('./nodes/literals/string-literal'),
   'NumericLiteral': require('./nodes/literals/numeric-literal'),
   'NullLiteral': require('./nodes/literals/null-literal'),
@@ -23,7 +24,7 @@ module.exports = (path, {target, language, dictionary}) => {
     if (calleeName === target) {
       const lang = (args && args[1] && args[1].value) || language;
       const result = operations(target, args, dictionary, lang, operations);
-      path.replaceWithSourceString(`${result}`);
+      path.replaceWithSourceString(result);
       return;
     }
   }

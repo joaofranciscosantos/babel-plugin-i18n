@@ -7,7 +7,7 @@ describe('When using babel-plugin-i18n module', () => {
   const source = join(__dirname, '..', '..', '..', '__tests__', '.dictionary.json');
   it('', done => {
     const {code} = transform('i18n()', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`null;`);
+    expect(code).toBe(`undefined;`);
     done();
   });
   it('', done => {
@@ -17,7 +17,12 @@ describe('When using babel-plugin-i18n module', () => {
   });
   it('', done => {
     const {code} = transform('i18n(undefined)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`null;`);
+    expect(code).toBe(`undefined;`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(undefined)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`undefined;`);
     done();
   });
 });
