@@ -17,9 +17,9 @@ and add it to .babelrc as plugin:
 ```
 
 ### Plugin Options
-`source` the location of dictionary file containing all translations. Defaults to `/.dictionary.json`.
+`source` the location of dictionary file. Defaults to `/.dictionary.json`.
 
-`target` which function is going to do the translation. Defaults to `i18n`. 
+`target` function that is going to do the translation. Defaults to `i18n`. 
 
 `language` set a language. Defaults to `en`.
 ```json
@@ -27,6 +27,13 @@ and add it to .babelrc as plugin:
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "pt"}]]
 }
 ```
+
+### API
+```bash
+i18n(expression[, string]); 
+```
+- `expression` returns translated expression.
+- `string` (optional) overrides the language set by plugin.
 
 ### Dictionary
 ```json
@@ -42,22 +49,11 @@ and add it to .babelrc as plugin:
 }
 ```
 
-### Template
-```bash
-i18n(expression[, string]); 
-```
-- expression: Returns translated expression.
-- (optional) string: Overrides the language set by plugin.
+### Examples
+1. `i18n('water')` transpiles to `"WateR"`
 
-##### Practical Examples
-```bash
-i18n('water') transpiles to "WateR"
-```
-```bash
-i18n('water', 'es') transpiles to "agua"
-```
+2. `i18n('water', 'es')` transpiles to `"agua"`
 
-### More Examples
 ```bash
 1. i18n([123]) transpiles to [123]
 ```
