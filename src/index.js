@@ -6,6 +6,7 @@ const nodes = {
   'NumericLiteral': require('./nodes/literals/numeric-literal'),
   'BooleanLiteral': require('./nodes/literals/boolean-literal'),
   'NullLiteral': require('./nodes/literals/null-literal'),
+  'LogicalExpression': require('./nodes/logical-expression'),
   'UnaryExpression': require('./nodes/unary-expression'),
   'BinaryExpression': require('./nodes/binary-expression'),
   'ArrayExpression': require('./nodes/array-expression'),
@@ -17,6 +18,7 @@ const nodes = {
 
 const operations = (target, args, dictionary, lang, operations) => {
   const nodeType = args && args[0] && args[0].type;
+  //console.log(nodeType)
   const node = nodes[nodeType];
   return node ? node(target, args, dictionary, lang, operations) : 'undefined';
 };

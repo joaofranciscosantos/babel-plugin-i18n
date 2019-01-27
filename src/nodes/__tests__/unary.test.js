@@ -65,11 +65,6 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     expect(code).toBe(`i18n("nadar");`);
     done();
   });
-  it.only('', done => {
-    const {code} = transform('i18n(true && false)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
-    done();
-  });
   it('', done => {
     const {code} = transform('let a = 1; i18n(a++)', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`i18n("nadar");`);
@@ -118,6 +113,31 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   it('array to true', done => {
     const {code} = transform('i18n(!![])', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`undefined;`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(!{})', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`false;`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(!true)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`false;`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(!0)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`true;`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(!!0)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`false;`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('i18n(!!(1 || 0))', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`true;`);
     done();
   });
 });
