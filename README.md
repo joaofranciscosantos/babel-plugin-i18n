@@ -1,4 +1,11 @@
-# babel-plugin-18n
+[![GitHub version](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n.svg)](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n)
+[![npm version](https://badge.fury.io/js/%40joaofranciscosantos%2Fbabel-plugin-i18n.svg)](https://badge.fury.io/js/%40joaofranciscosantos%2Fbabel-plugin-i18n)
+![](https://img.shields.io/github/license/joaofranciscosantos/babel-plugin-i18n.svg)
+[![dependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n)
+[![devDependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/dev-status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n?type=dev)
+[![Known Vulnerabilities](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n/badge.svg?targetFile=package.json)](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n?targetFile=package.json)
+
+# babel-plugin-i18n
 
 Efficient Multi-Language Translator for Babel.
 
@@ -15,7 +22,6 @@ and add it to .babelrc as plugin:
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n"]]
 }
 ```
-
 ### Plugin Options
 `source` the location of dictionary file. Defaults to `/.dictionary.json`.
 
@@ -27,13 +33,13 @@ and add it to .babelrc as plugin:
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "pt"}]]
 }
 ```
-
 ### API
 ```bash
 i18n(expression[, string]); 
 ```
-- `expression` returns translated expression.
-- `string` (optional) overrides the language set by plugin.
+`expression` javascript expression.
+
+`string` (optional) overrides the language set by plugin.
 
 ### Dictionary
 ```json
@@ -48,23 +54,14 @@ i18n(expression[, string]);
   }
 }
 ```
-
 ### Examples
 1. `i18n('water')` transpiles to `"WateR"`
 
 2. `i18n('water', 'es')` transpiles to `"agua"`
 
-```bash
-1. i18n([123]) transpiles to [123]
-```
-```bash
-2. i18n(["water"]) transpiles to ["WateR"]
-```
-(To continue...)
 
 ## Tests
 ```bash
 npm t
 ```
-
 ## Future Work
