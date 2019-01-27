@@ -3,7 +3,7 @@ const {transform} = require('@babel/core');
 const dictionary = require('../../__tests__/.dictionary.json');
 const plugin = require('../../..');
 
-describe('When using babel-plugin-i18n module', () => {
+describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   const source = join(__dirname, '..', '..', '__tests__', '.dictionary.json');
   it('', done => {
     const {code} = transform('i18n(true ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
@@ -16,12 +16,12 @@ describe('When using babel-plugin-i18n module', () => {
     done();
   });
   it('', done => {
-    const {code} = transform('i18n(0 ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
+    const {code} = transform('i18n(0 ? "bolos" : "Benfica")', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`"${dictionary.bolos.en}";`);
     done();
   });
   it('', done => {
-    const {code} = transform('i18n(1 ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
+    const {code} = transform('i18n(1 ? "bolos" : "Benfica")', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`"${dictionary.bolos.en}";`);
     done();
   });
@@ -51,11 +51,6 @@ describe('When using babel-plugin-i18n module', () => {
     done();
   });
   it('', done => {
-    const {code} = transform('i18n(false)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
-    done();
-  });
-  it('', done => {
     const {code} = transform('let a = 1; i18n(++a)', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`i18n("nadar");`);
     done();
@@ -70,7 +65,7 @@ describe('When using babel-plugin-i18n module', () => {
     expect(code).toBe(`i18n("nadar");`);
     done();
   });
-  it('', done => {
+  it.only('', done => {
     const {code} = transform('i18n(true && false)', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`i18n("nadar");`);
     done();
@@ -93,6 +88,36 @@ describe('When using babel-plugin-i18n module', () => {
   it('', done => {
     const {code} = transform('i18n(()=>{})', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`()=>{};`);
+    done();
+  });
+  it('null to false', done => {
+    const {code} = transform('i18n(!!null)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`undefined;`);
+    done();
+  });
+  it('null to true', done => {
+    const {code} = transform('i18n(!null)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`undefined;`);
+    done();
+  });
+  it('zero to false', done => {
+    const {code} = transform('i18n(!!0)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`undefined;`);
+    done();
+  });
+  it('zero to true', done => {
+    const {code} = transform('i18n(!0)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`undefined;`);
+    done();
+  });
+  it('positive number to true', done => {
+    const {code} = transform('i18n(!!1)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`undefined;`);
+    done();
+  });
+  it('array to true', done => {
+    const {code} = transform('i18n(!![])', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`undefined;`);
     done();
   });
 });

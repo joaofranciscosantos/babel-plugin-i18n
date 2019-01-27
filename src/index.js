@@ -1,12 +1,16 @@
 const nodes = {
   'Identifier': require('./nodes/literals/identifier'),
   'StringLiteral': require('./nodes/literals/string-literal'),
+  'TemplateLiteral': require('./nodes/literals/template-literal'),
+  'TemplateElement': require('./nodes/literals/template-element'),
   'NumericLiteral': require('./nodes/literals/numeric-literal'),
+  'BooleanLiteral': require('./nodes/literals/boolean-literal'),
   'NullLiteral': require('./nodes/literals/null-literal'),
   'UnaryExpression': require('./nodes/unary-expression'),
   'BinaryExpression': require('./nodes/binary-expression'),
   'ArrayExpression': require('./nodes/array-expression'),
   'NewExpression': require('./nodes/object-expression'),
+  'ConditionalExpression': require('./nodes/condicional-expression'),
   'ClassExpression': require('./nodes/class-expression'),
   'CallExpression': require('./nodes/call-expression')
 };
