@@ -51,6 +51,9 @@ i18n(expression[, string]);
     "en": "WateR",
     "pt": "água",
     "es": "agua"
+  },
+  "WaterR": {
+  	"en": "more-water"
   }
 }
 ```
@@ -59,7 +62,11 @@ i18n(expression[, string]);
 
 2. `i18n('water', 'es')` transpiles to `"agua"`
 
+3. `[i18n("water"), "3"]` transpiles to `["WateR", "3"]`
 
+4. `i18n([i18n("water"), "3"])` transpiles to `["more-water", "3"]`
+
+5. `i18n("water"+"bolos", "es")` transpiles to `"aguabolos"`
 ## Tests
 ```bash
 npm t

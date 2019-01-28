@@ -20,4 +20,19 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     expect(code).toBe(`-1;`);
     done();
   });
+  it('positive number', done => {
+    const {code} = transform('i18n(+1)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`1;`);
+    done();
+  });
+  it('negative number', done => {
+    const {code} = transform('i18n(+(-1))', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`-1;`);
+    done();
+  });
+  it('negative number', done => {
+    const {code} = transform('i18n(-(-1))', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`1;`);
+    done();
+  });
 });

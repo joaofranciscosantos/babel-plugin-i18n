@@ -31,6 +31,11 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     expect(code).toBe(`"${dictionary.nadar.en}";`);
     done();
   });
+  it('template string', done => {
+    const {code} = transform('const a = "nadar"; i18n(`${a}`)', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`const a = "nadar";\na[en];`);
+    done();
+  });
   it('template string, with spaces', done => {
     const {code} = transform('i18n(` pause!`)', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`" pause!";`);

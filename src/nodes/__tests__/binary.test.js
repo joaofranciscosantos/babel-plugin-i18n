@@ -7,47 +7,22 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   const source = join(__dirname, '..', '..', '__tests__', '.dictionary.json');
   it('', done => {
     const {code} = transform('i18n(1+1)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe('1+1;');
+    expect(code).toBe('2;');
     done();
   });
   it('', done => {
-    const {code} = transform('i18n("na"+"dar")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary.nadar.en}";`);
+    const {code} = transform('i18n("nadar"+"!!!")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.nadar.en}!!!";`);
     done();
   });
   it('', done => {
-    const {code} = transform('i18n(1+"dar")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary['1dar'].en}";`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n("cu"+2)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary.cu2.en}";`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n("pala"+"dar", "it")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"paladar";`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n("na"+"dar", "it")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"nadar";`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n(1+"dar", "it")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"1dar";`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n("cu"+2, "it")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"cu2";`);
+    const {code} = transform('i18n("nadar"+"bolos", "pt")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.nadar.pt}${dictionary.bolos.pt}";`);
     done();
   });
   it('', done => {
     const {code} = transform('i18n("it"+"alia", "it")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary.italia.it}";`);
+    expect(code).toBe(`"italia";`);
     done();
   });
 });

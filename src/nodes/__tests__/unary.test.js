@@ -12,12 +12,12 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   });
   it('', done => {
     const {code} = transform('i18n(false ? "bolos": "Benfica")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    expect(code).toBe(`"${dictionary.Benfica.en}";`);
     done();
   });
   it('', done => {
     const {code} = transform('i18n(0 ? "bolos" : "Benfica")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    expect(code).toBe(`"${dictionary.Benfica.en}";`);
     done();
   });
   it('', done => {
@@ -51,68 +51,48 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     done();
   });
   it('', done => {
-    const {code} = transform('let a = 1; i18n(++a)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('let a = 1; i18n(--a)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
-    done();
-  });
-  it('', done => {
     const {code} = transform('i18n(this)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
+    expect(code).toBe(`this[en];`);
     done();
   });
   it('', done => {
-    const {code} = transform('let a = 1; i18n(a++)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('let a = 1; i18n(a--)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n(true)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`i18n("nadar");`);
+    const {code} = transform('i18n(this, "es")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`this[es];`);
     done();
   });
   it('', done => {
     const {code} = transform('i18n(()=>{})', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`()=>{};`);
+    expect(code).toBe(`undefined;`);
     done();
   });
   it('null to false', done => {
     const {code} = transform('i18n(!!null)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`undefined;`);
+    expect(code).toBe(`false;`);
     done();
   });
   it('null to true', done => {
     const {code} = transform('i18n(!null)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`undefined;`);
+    expect(code).toBe(`true;`);
     done();
   });
   it('zero to false', done => {
     const {code} = transform('i18n(!!0)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`undefined;`);
+    expect(code).toBe(`false;`);
     done();
   });
   it('zero to true', done => {
     const {code} = transform('i18n(!0)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`undefined;`);
+    expect(code).toBe(`true;`);
     done();
   });
   it('positive number to true', done => {
     const {code} = transform('i18n(!!1)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`undefined;`);
+    expect(code).toBe(`true;`);
     done();
   });
   it('array to true', done => {
     const {code} = transform('i18n(!![])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`undefined;`);
+    expect(code).toBe(`true;`);
     done();
   });
   it('', done => {

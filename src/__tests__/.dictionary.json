@@ -6,7 +6,8 @@
   },
   "bolos": {
     "pt": "cabra",
-    "en": "Benfica"
+    "en": "Benfica",
+    "it": "bolito"
   },
   "Benfica": {
     "en": "win"

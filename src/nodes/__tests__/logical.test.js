@@ -20,7 +20,7 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     expect(code).toBe(`false;`);
     done();
   });
-  it('or operator', done => {
+  it('or operator, with numbers', done => {
     const {code} = transform('i18n(0 || true)', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`true;`);
     done();

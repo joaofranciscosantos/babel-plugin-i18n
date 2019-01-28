@@ -1,14 +1,30 @@
 module.exports = (target, args, dictionary, lang, operations) => {
-  const leftType = args[0].left.type;
-  const leftValue = args[0].left.value;
+  const left = operations(target, [args[0].left], dictionary, lang, operations);
   const operator = args[0].operator;
-  const rightType = args[0].right.type;
-  const rightValue = args[0].right.value;
-  if (operator === '+' && (leftType === 'StringLiteral' || rightType === 'StringLiteral')) {
-    const binaryExpr = `${leftValue}${rightValue}`;
-    if (dictionary[binaryExpr] === undefined || dictionary[binaryExpr][lang] === undefined) {
-      return `"${binaryExpr}"`;
+  const right = operations(target, [args[0].right], dictionary, lang, operations);
+  let binaryExpr = [];
+  if (typeof left === 'string') {
+    binaryExpr = [...binaryExpr, ...left];
+  } else {
+    binaryExpr.push(left);
+  }
+  if (typeof right === 'string') {
+    binaryExpr = [...binaryExpr, ...right];
+  } else {
+    binaryExpr.push(right);
+  }
+  for (let i = binaryExpr.length; i--;){
+    if ( binaryExpr[i] === '"') binaryExpr.splice(i, 1);
+  }
+
+  if (typeof left === 'string' || typeof right === 'string') {
+    switch (operator) {
+      case '+':
+        return `"${binaryExpr.join('')}"`;
     }
-    return `"${dictionary[binaryExpr][lang]}"`;
+  }
+  switch (operator) {
+    case '+':
+      return left + right;
   }
 };

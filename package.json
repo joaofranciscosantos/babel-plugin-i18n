@@ -1,11 +1,11 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Efficient Multi-Language Translator for Babel",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --detectOpenHandles"
+    "test": "jest --coverage --detectOpenHandles --no-cache"
   },
   "keywords": [
     "i18n",
