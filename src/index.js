@@ -31,7 +31,7 @@ const isIdentifierFirstArg = (path, args, lang) => {
       path.replaceWithSourceString(name);
       return true;
     }
-    path.replaceWithSourceString(`${name}[${lang}]`);
+    path.replaceWithSourceString(`${name}["${lang}"]`);
     return true;
   }
   return false;
