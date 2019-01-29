@@ -31,23 +31,18 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     done();
   });
   it('', done => {
-    const {code} = transform('i18n(["3", 0, -1, 1])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`["3", 0, -1, 1];`);
+    const {code} = transform('i18n(["3", 0, -1, 1, true, , false])', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`["3", 0, -1, 1, true, undefined, false];`);
     done();
   });
   it('', done => {
-    const {code} = transform('i18n([true, null, false, undefined, 0 , 1, -1])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`[true, null, false, undefined, 0, 1, -1]";`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n(["abv", new String("bolos"), (input => input)("bolos")])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`["abv", "${dictionary.bolos.en}", "${dictionary.bolos.en}"];`);
+    const {code} = transform('i18n([1, null, undefined, 0, "null", "undefined"])', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`[1, null, "undefined", 0, "null", "undefined"];`);
     done();
   });
   it('', done => {
     const {code} = transform('const a = "bolos"; i18n([a])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`const a = "bolos";\n[a[en]];`);
+    expect(code).toBe(`const a = "bolos";\n["a"];`);
     done();
   });
   it('', done => {

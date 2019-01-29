@@ -51,16 +51,6 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     done();
   });
   it('', done => {
-    const {code} = transform('i18n(this)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`this[en];`);
-    done();
-  });
-  it('', done => {
-    const {code} = transform('i18n(this, "es")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`this[es];`);
-    done();
-  });
-  it('', done => {
     const {code} = transform('i18n(()=>{})', { plugins: [() => plugin(null, {source})] });
     expect(code).toBe(`undefined;`);
     done();
