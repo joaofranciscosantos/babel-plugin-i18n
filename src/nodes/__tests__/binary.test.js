@@ -16,8 +16,8 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     done();
   });
   it('', done => {
-    const {code} = transform('i18n("nadar"+"bolos", "pt")', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary.nadar.pt}${dictionary.bolos.pt}";`);
+    const {code} = transform('i18n("!"+"nadar"+"bolos"+"?", "pt")', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"!${dictionary.nadar.pt}${dictionary.bolos.pt}?";`);
     done();
   });
   it('', done => {

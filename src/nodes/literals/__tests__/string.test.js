@@ -16,8 +16,8 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     done();
   });
   it('single quote string', done => {
-    const {code} = transform("i18n('bolos')", { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`"${dictionary.bolos.en}";`);
+    const {code} = transform("i18n('cu2')", { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`"${dictionary.cu2.en}";`);
     done();
   });
   it('no translation', done => {
@@ -33,7 +33,7 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   });
   it('template string', done => {
     const {code} = transform('const a = "nadar"; i18n(`${a}`)', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`const a = "nadar";\na[en];`);
+    expect(code).toBe(`const a = "nadar";\n"a";`);
     done();
   });
   it('template string, with spaces', done => {

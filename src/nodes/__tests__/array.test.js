@@ -52,12 +52,12 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   });
   it('', done => {
     const {code} = transform('i18n([`123`, new String("bolos"), () => { return "nadar"; }])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`["123", "${dictionary.bolos.en}"];`);
+    expect(code).toBe(`["123", "${dictionary.bolos.en}", undefined];`);
     done();
   });
   it('', done => {
     const {code} = transform('i18n(["-1", function oi () { return "bolos"; }])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`["-1", "${dictionary.bolos.en}"];`);
+    expect(code).toBe(`["-1", undefined];`);
     done();
   });
   it('', done => {
