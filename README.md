@@ -7,7 +7,7 @@
 
 # babel-plugin-i18n
 
-Efficient Multi-Language Translator for Babel.
+Efficient Multi-Language Text Translator for Babel.
 
 ## How to use
 
@@ -34,8 +34,10 @@ and add it to .babelrc as plugin:
 }
 ```
 ### API
-```bash
-i18n(expression[, string]); 
+```javascript
+_i18n(Expression [, String]) : 
+_i18nObj(Object [, String]) : String
+_i18nArr(Array [, String]) : Array
 ```
 `expression` javascript expression.
 
