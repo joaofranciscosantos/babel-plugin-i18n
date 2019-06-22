@@ -35,9 +35,7 @@ and add it to .babelrc as plugin:
 ```
 ### API
 ```javascript
-_i18n(Expression [, String]) : 
-_i18nObj(Object [, String]) : String
-_i18nArr(Array [, String]) : Array
+i18n(Expression [, String])
 ```
 `expression` javascript expression.
 
