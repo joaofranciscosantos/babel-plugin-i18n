@@ -45,4 +45,9 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     expect(code).toBe(`"${dictionary.bolos.en}${dictionary.nadar.en}";`);
     done();
   });
+  it.skip('', done => {
+    const {code} = transform('const a = "bolos"; i18n({...a})', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`const a = "bolos";\n"${dictionary.bolos.en}";`);
+    done();
+  });
 });

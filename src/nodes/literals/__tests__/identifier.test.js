@@ -15,4 +15,19 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
     expect(code).toBe(`const a = {\n  "nadar": {\n    "en": "puta"\n  }\n};\nconst b = a["it"];`);
     done();
   });
+  it('', done => {
+    const {code} = transform('const a = 1; const b = i18n(a, "it");', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`const a = {\n  "nadar": {\n    "en": "puta"\n  }\n};\nconst b = a.toString();`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('const a = [1,2,3]; const b = i18n(a);', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`const a = {\n  "nadar": {\n    "en": "puta"\n  }\n};\nconst b = a["en"];`);
+    done();
+  });
+  it('', done => {
+    const {code} = transform('const a = null; const b = i18n(a, "it");', { plugins: [() => plugin(null, {source})] });
+    expect(code).toBe(`const a = {\n  "nadar": {\n    "en": "puta"\n  }\n};\nconst b = null;`);
+    done();
+  });
 });

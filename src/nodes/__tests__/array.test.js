@@ -37,7 +37,7 @@ describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   });
   it('', done => {
     const {code} = transform('i18n([1, null, undefined, 0, "null", "undefined"])', { plugins: [() => plugin(null, {source})] });
-    expect(code).toBe(`[1, null, "undefined", 0, "null", "undefined"];`);
+    expect(code).toBe(`[1, null, undefined, 0, "null", "undefined"];`);
     done();
   });
   it('', done => {

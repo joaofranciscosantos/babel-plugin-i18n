@@ -11,6 +11,7 @@ const nodes = {
   'BinaryExpression': require('./nodes/binary-expression'),
   'ArrayExpression': require('./nodes/array-expression'),
   'NewExpression': require('./nodes/new-expression'),
+  'SpreadElement': require('./nodes/spread-element'),
   'ConditionalExpression': require('./nodes/condicional-expression'),
   'ClassExpression': require('./nodes/class-expression'),
   'ObjectExpression': require('./nodes/object-expression'),
@@ -18,36 +19,21 @@ const nodes = {
   'CallExpression': require('./nodes/call-expression')
 };
 
-const operations = (target, args, dictionary, lang, operations) => {
+const operations = (target, args, dictionary, lang, operations, evaluate) => {
   const nodeType = args && args[0] && args[0].type;
   const node = nodes[nodeType];
-  return node ? node(target, args, dictionary, lang, operations) : 'undefined';
+  return node ? node(target, args, dictionary, lang, operations, evaluate) : 'undefined';
 };
-
-const isIdentifierFirstArg = (path, args, lang) => {
-  const {type, name} = args || {};
-  if (type === 'Identifier') {
-    if (name === 'undefined') {
-      path.replaceWithSourceString(name);
-      return true;
-    }
-    path.replaceWithSourceString(`${name}["${lang}"]`);
-    return true;
-  }
-  return false;
-}
 
 module.exports = (path, {target, language, dictionary}) => {
   if (path.node.callee.type === 'Identifier') {
     const calleeName = path.node.callee.name;
     const args = path.node.arguments;
+    const lang = (args && args[1] && args[1].value) || language;
     if (calleeName === target) {
-      const lang = (args && args[1] && args[1].value) || language;
-      if (!isIdentifierFirstArg(path, args[0], lang)) {
-        const result = operations(target, [args[0]], dictionary, lang, operations);
-        path.replaceWithSourceString(result);
-        return;
-      }
+      const result = operations(target, [args[0]], dictionary, lang, operations, true);
+      path.replaceWithSourceString(result);
+      return;
     }
   }
 };
