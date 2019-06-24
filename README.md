@@ -70,13 +70,15 @@ i18n(Expression [, String])
 
 6. `false || i18n("water")` transpiles to `"WateR"`
 
-6. `i18n(true && i18n("water"))` transpiles to `"more-water"`
+7. `i18n(true && i18n("water"))` transpiles to `"more-water"`
 
-7. `i18n(0 && i18n("water"))` transpiles to `0`
+8. `i18n(0 && i18n("water"))` transpiles to `0`
 
-8. `i18n({"it": "fire", "b": "3"}, "it")` transpiles to `fire`
+9. `i18n({"it": "fire", "b": "3"}, "it")` transpiles to `fire`
 
-9. `i18n(["water", "3"])` transpiles to `["Water", "3"]`
+10. `i18n({"it": "fire", "b": "3"}, "en")` transpiles to `undefined`
+
+11. `i18n(["water", "3"])` transpiles to `["Water", "3"]`
 ## Tests
 ```bash
 npm t
