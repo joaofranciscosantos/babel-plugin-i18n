@@ -1,7 +1,7 @@
 module.exports = (target, args, dictionary, lang, operations) => {
-  const left = operations(target, [args[0].left], dictionary, lang, operations);
-  const operator = args[0].operator;
-  const right = operations(target, [args[0].right], dictionary, lang, operations);
+  const left = operations(target, args.left, dictionary, lang, operations);
+  const operator = args.operator;
+  const right = operations(target, args.right, dictionary, lang, operations);
   let binaryExpr = [];
   if (typeof left === 'string') {
     binaryExpr = [...binaryExpr, ...left];

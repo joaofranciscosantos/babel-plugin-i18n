@@ -1,8 +1,12 @@
 module.exports = (target, args, dictionary, lang, operations) => {
-  const value = args[0].value.cooked;
+  const value = args.value.cooked;
   const translations = dictionary[value];
   if (!translations) {
     return `"${value}"`;
   }
-  return `"${translations[lang]}"`;
+  const translation = translations[lang];
+  if (!translation) {
+    return `"${value}"`
+  }
+  return `"${translation}"`;
 };

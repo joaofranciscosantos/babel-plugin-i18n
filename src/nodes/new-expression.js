@@ -1,4 +1,3 @@
 module.exports = (target, args, dictionary, lang, operations) => {
-  const inputArgs = args[0].arguments;
-  return operations(target, inputArgs, dictionary, lang, operations);
+  return operations(target, args.arguments[0], dictionary, lang, operations);
 };

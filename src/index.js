@@ -11,7 +11,6 @@ const nodes = {
   'BinaryExpression': require('./nodes/binary-expression'),
   'ArrayExpression': require('./nodes/array-expression'),
   'NewExpression': require('./nodes/new-expression'),
-  'SpreadElement': require('./nodes/spread-element'),
   'ConditionalExpression': require('./nodes/condicional-expression'),
   'ClassExpression': require('./nodes/class-expression'),
   'ObjectExpression': require('./nodes/object-expression'),
@@ -20,7 +19,7 @@ const nodes = {
 };
 
 const operations = (target, args, dictionary, lang, operations, evaluate) => {
-  const nodeType = args && args[0] && args[0].type;
+  const nodeType = args && args.type;
   const node = nodes[nodeType];
   return node ? node(target, args, dictionary, lang, operations, evaluate) : 'undefined';
 };
@@ -31,9 +30,8 @@ module.exports = (path, {target, language, dictionary}) => {
     const args = path.node.arguments;
     const lang = (args && args[1] && args[1].value) || language;
     if (calleeName === target) {
-      const result = operations(target, [args[0]], dictionary, lang, operations, true);
+      const result = operations(target, args[0], dictionary, lang, operations);
       path.replaceWithSourceString(result);
-      return;
     }
   }
 };

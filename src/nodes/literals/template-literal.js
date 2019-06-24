@@ -1,31 +1,25 @@
 module.exports = (target, args, dictionary, lang, operations) => {
-  const expressions = args[0].expressions;
-  const quasis = args[0].quasis;
-  let expr;
-  if (expressions.length) {
-    if(expressions[0].type === 'Identifier') {
-      expr = operations(target, expressions, dictionary, lang, operations, true);
+  const expressions = args.expressions[0];
+  const quasis = args.quasis[0];
+  let exprValue;
+  if (expressions) {
+    if (expressions.type === 'Identifier') {
+      exprValue = operations(target, expressions, dictionary, lang, operations, true);
     } else {
-      expr = operations(target, expressions, dictionary, lang, operations);
-    }  }
-
-  let qu;
-  if (quasis.length) {
-    qu = operations(target, args[0].quasis, dictionary, lang, operations);
-  }
-
-  if (quasis[0] && quasis[0].value) {
-    if (!expr) {
-      return `"${quasis[0].value.cooked}"`;
-    } else if (quasis[0].tail) {
-      return `"${expr}" + "${quasis[0].value.cooked}"`;
-    } else {
-      return `"${quasis[0].value.cooked}" + ${expr}`;
+      exprValue = operations(target, expressions, dictionary, lang, operations);
     }
   }
-  if (quasis[1] && quasis[1].value) { //TODO
-    return `"${quasis[0].value.cooked}" + ${expr} + "${quasis[1].value.cooked}"`;
+
+  let quasisValue;
+  if (quasis) {
+    quasisValue = operations(target, quasis, dictionary, lang, operations);
   }
-  return `"" + ${expr} + ""`;
+
+  if (expressions && quasis.tail) {
+    return `${exprValue} + ${quasisValue}`;
+  } else if (expressions && !quasis.tail) {
+    return `${quasisValue} + ${exprValue}`;
+  } else {
+    return quasisValue;
+  }
 };
-//TODO improve

@@ -1,3 +1,3 @@
 module.exports = (target, args, dictionary, lang, operations) => {
-  return args[0].value;
+  return !!args.value;
 };

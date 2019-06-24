@@ -1,4 +1,4 @@
-module.exports = `(identifier => {
+module.exports = arg => `(identifier => {
   switch (typeof identifier) {
     case 'boolean':
       return identifier + '.toString()';
@@ -12,4 +12,4 @@ module.exports = `(identifier => {
     case 'object':
       return JSON.stringify(identifier) + '["en"]';
   }
-})(a)`;
+})(${arg})`;
