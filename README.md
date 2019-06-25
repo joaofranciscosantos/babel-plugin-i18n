@@ -34,8 +34,8 @@ and add it to .babelrc as plugin:
 }
 ```
 ### API
-```javascript
-i18n(Expression [, String])
+```
+i18n(expression, string)
 ```
 `expression` javascript expression.
 
@@ -62,23 +62,21 @@ i18n(Expression [, String])
 
 2. `i18n('water', 'es')` transpiles to `"agua"`
 
-3. `[i18n("water"), "3"]` transpiles to `["WateR", "3"]`
+3. `i18n("water"+"bolos", "es")` transpiles to `"aguabolos"`
 
-4. `i18n([i18n("water"), "3"])` transpiles to `["more-water", "3"]`
+4. `false || i18n("water")` transpiles to `"WateR"`
 
-5. `i18n("water"+"bolos", "es")` transpiles to `"aguabolos"`
+5. `i18n(true && i18n("water"))` transpiles to `"more-water"`
 
-6. `false || i18n("water")` transpiles to `"WateR"`
+6. `i18n(0 && i18n("water"))` transpiles to `0`
 
-7. `i18n(true && i18n("water"))` transpiles to `"more-water"`
+7. `i18n({"it": "fire", "b": "3"})` transpiles to `undefined`
 
-8. `i18n(0 && i18n("water"))` transpiles to `0`
+8. `i18n(["water", "3"])` transpiles to `["WateR", "3"]`
 
-9. `i18n({"it": "fire", "b": "3"}, "it")` transpiles to `fire`
+9. `[i18n("water"), "3"]` transpiles to `["WateR", "3"]`
 
-10. `i18n({"it": "fire", "b": "3"}, "en")` transpiles to `undefined`
-
-11. `i18n(["water", "3"])` transpiles to `["Water", "3"]`
+10. `i18n([i18n("water"), "3"])` transpiles to `["more-water", "3"]`
 ## Tests
 ```bash
 npm t

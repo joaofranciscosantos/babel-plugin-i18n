@@ -20,5 +20,13 @@
   },
   "italia": {
     "it": "italiano"
+  },
+  "water": {
+    "en": "WateR",
+    "pt": "água",
+    "es": "agua"
+  },
+  "WaterR": {
+    "en": "more-water"
   }
 }
