@@ -1,4 +1,4 @@
-out
+tests/out
 # Logs
 logs
 *.log

@@ -1,7 +1,7 @@
 const {join} = require('path');
 const {transform} = require('@babel/core');
-const dictionary = require('../../../__tests__/.dictionary.json');
-const plugin = require('../../../..');
+const dictionary = require('../.dictionary');
+const plugin = require('../../index');
 
 describe('When using babel-plugin-i18n module, must be able to resolve', () => {
   const source = join(__dirname, '..', '..', '..', '__tests__', '.dictionary.json');

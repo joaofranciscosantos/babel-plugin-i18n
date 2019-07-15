@@ -1,8 +1,8 @@
 const {join} = require('path');
 const {transform} = require('@babel/core');
-const identifierHelper = require('../identifier-helper');
-const dictionary = require('../../../__tests__/.dictionary.json');
-const plugin = require('../../../..');
+const identifierHelper = require('../../src/nodes/literals/identifier-helper');
+const dictionary = require('../.dictionary');
+const plugin = require('../../index');
 
 describe.skip('When using babel-plugin-i18n module, must be able to resolve', () => {
   const source = join(__dirname, '..', '..', '..', '__tests__', '.dictionary.json');
