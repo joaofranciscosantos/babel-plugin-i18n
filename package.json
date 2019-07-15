@@ -9,7 +9,7 @@
     "npm": "6"
   },
   "scripts": {
-    "test": "jest --runInBand --coverage --detectOpenHandles"
+    "test": "sh tests/tests.sh"
   },
   "keywords": [
     "i18n",
@@ -31,7 +31,6 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "jest": "^24.8.0"
+    "@babel/core": "^7.5.4"
   }
 }
