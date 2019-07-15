@@ -63,11 +63,11 @@ i18n(expression, string)
 
 2. `i18n('water', 'es')` transpiles to `"agua"`
 
-3. `i18n("water"+"bolos", "es")` transpiles to `"aguabolos"`
+3. `i18n("water"+"bolos", "pt")` transpiles to `"águacabra"`
 
 4. `i18n(0 || "water")` transpiles to `"WateR"`
 
-5. `i18n(true && i18n("water"))` transpiles to `"more-water"`
+5. `i18n(true && i18n("water"))` transpiles to `"WateR"`
 
 6. `i18n(0 && i18n("water"))` transpiles to `0`
 
@@ -77,7 +77,7 @@ i18n(expression, string)
 
 9. `[i18n("water"), "3"]` transpiles to `["WateR", "3"]`
 
-10. `i18n([i18n("water"), "3"])` transpiles to `["more-water", "3"]`
+10. `i18n([i18n("water"), "3"])` transpiles to `["WateR", "3"]`
 
 11. `i18n(i18n(i18n("water")))` transpiles to `"WateR"`
 ## Tests
