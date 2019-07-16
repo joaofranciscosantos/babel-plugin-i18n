@@ -1,0 +1,22 @@
+const { transpile } = require('..');
+
+transpile('i18n(true ? "bolos": "Benfica")');
+transpile('i18n(false ? "bolos": "Benfica")');
+transpile('i18n(0 ? "bolos" : "Benfica")');
+transpile('i18n(1 ? "bolos" : "Benfica")');
+transpile('i18n((("bolos")))');
+transpile('() => i18n("bolos")');
+transpile('i18n((("bolos")))');
+transpile('function a() { return i18n("bolos") }');
+transpile('(() => i18n("bolos"))()');
+transpile('i18n(i18n("bolos"))');
+transpile('i18n(()=>{})');
+transpile('i18n(!!null)');
+transpile('i18n(!null)');
+transpile('i18n(!!0)');
+transpile('i18n(!0)');
+transpile('i18n(!!1)');
+transpile('i18n(!![])');
+transpile('i18n(!{})');
+transpile('i18n(!true)');
+transpile('i18n(!!(1 || 0))');
