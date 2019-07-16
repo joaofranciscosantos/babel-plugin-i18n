@@ -4,33 +4,31 @@
   "version": "0.0.20",
   "description": "Efficient Multi-Language Translator for Babel",
   "main": "index.js",
+  "scripts": {
+    "test": "sh tests/tests.sh"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.5.4"
+  },
   "engines": {
     "node": "10",
     "npm": "6"
   },
-  "scripts": {
-    "test": "sh tests/tests.sh"
-  },
   "keywords": [
     "i18n",
     "translator",
-    "babel-plugin",
-    "translation-manager",
-    "multi-language"
+    "babel-plugin"
   ],
   "author": {
     "name": "João Francisco Santos",
     "email": "joao.francis.santos@gmail.com"
   },
+  "license": "MIT",
   "homepage": "https://github.com/joaofranciscosantos/babel-plugin-i18n#readme",
+  "bugs": "https://github.com/joaofranciscosantos/babel-plugin-i18n/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/joaofranciscosantos/babel-plugin-i18n.git"
-  },
-  "bugs": "https://github.com/joaofranciscosantos/babel-plugin-i18n/issues",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/core": "^7.5.4"
   }
 }

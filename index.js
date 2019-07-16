@@ -2,10 +2,16 @@ const {readFileSync} = require('fs');
 const {resolve} = require('path');
 const entry = require('./src');
 
+const defaults = {
+  source: '.dictionary.json',
+  target: 'i18n',
+  language: 'en'
+};
+
 module.exports = (context, input = {}) => {
-  const dictionary = JSON.parse(readFileSync(resolve(input.source || '.dictionary.json'), 'utf8'));
-  const target = input.target || 'i18n';
-  const language = input.language || 'en';
+  const dictionary = JSON.parse(readFileSync(resolve(input.source || defaults.source), 'utf8'));
+  const target = input.target || defaults.target;
+  const language = input.language || defaults.language;
   return {
     visitor: {
       CallExpression: {
