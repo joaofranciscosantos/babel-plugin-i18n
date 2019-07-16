@@ -1,6 +1,5 @@
-const { transform } = require('@babel/core');
-const { options } = require('..');
+const { transpile } = require('..');
 
-console.log(transform('i18n()', options).code);
-console.log(transform('i18n(null)', options).code);
-console.log(transform('i18n(undefined)', options).code);
+transpile('i18n()');
+transpile('i18n(null)');
+transpile('i18n(undefined)');
