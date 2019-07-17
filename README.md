@@ -48,38 +48,37 @@ i18n(expression, string)
   "keyword": {
     "language": "translation"
   },
-  "water": {
-    "en": "WateR",
-    "pt": "água",
-    "es": "agua"
+  "dog": {
+    "en": "dog",
+    "pt": "cão",
+    "es": "perro",
+    "it": "cane"
   },
-  "WaterR": {
-  	"en": "more-water"
+  "water": {
+    "en": "water"
   }
 }
 ```
 ### Examples
-1. `i18n('water')` transpiles to `"WateR"`
+1. `i18n('dog')` transpiles to `"dog"`
 
-2. `i18n('water', 'es')` transpiles to `"agua"`
+2. `i18n('dog', 'es')` transpiles to `"perro"`
 
-3. `i18n("water"+"bolos", "pt")` transpiles to `"águacabra"`
+3. `i18n("do"+"g", "it")` transpiles to `"cane"`
 
-4. `i18n(0 || "water")` transpiles to `"WateR"`
+4. `i18n(0 || "water")` transpiles to `"water"`
 
-5. `i18n(true && i18n("water"))` transpiles to `"WateR"`
+5. `i18n(true && i18n("dog"))` transpiles to `"dog"`
 
-6. `i18n(0 && i18n("water"))` transpiles to `0`
+6. `i18n(0 && i18n("water", "pt"))` transpiles to `0`
 
-7. `i18n({"it": "fire", "b": "3"})` transpiles to `undefined`
+7. `i18n({"it": "fire"})` transpiles to `undefined`
 
-8. `i18n(["water", "3"])` transpiles to `["WateR", "3"]`
+8. `i18n(["dog", "3"], "pt")` transpiles to `["cão", "3"]`
 
-9. `[i18n("water"), "3"]` transpiles to `["WateR", "3"]`
+9. `[i18n("dog", "es"), "3"]` transpiles to `["perro", "3"]`
 
-10. `i18n([i18n("water"), "3"])` transpiles to `["WateR", "3"]`
-
-11. `i18n(i18n(i18n("water")))` transpiles to `"WateR"`
+10. `i18n(i18n(i18n("dog", "it"), "??"), "pt")` transpiles to `"dog"`
 ## Tests
 ```bash
 npm t
