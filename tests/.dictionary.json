@@ -1,32 +1,20 @@
 {
-  "nadar": {
-    "en": "swimming",
-    "pt": "nadando",
-    "it": "niandado"
+  "dog": {
+    "en": "dog",
+    "pt": "cão",
+    "es": "perro",
+    "it": "cane"
   },
-  "bolos": {
-    "pt": "cabra",
-    "en": "Benfica",
-    "it": "bolito"
+  "crocodile": {
+    "pt": "crocodilo",
+    "it": "coccodrillo"
   },
-  "Benfica": {
-    "en": "win"
+  "bear": {
+    "en": "bear",
+    "pt": "urso"
   },
-  "1dar": {
-    "en": "puta"
-  },
-  "cu2": {
-    "en": "viado"
-  },
-  "italia": {
-    "it": "italiano"
-  },
-  "water": {
-    "en": "WateR",
-    "pt": "água",
-    "es": "agua"
-  },
-  "WaterR": {
-    "en": "more-water"
+  "cão": {
+    "en": "dog",
+    "pt": "cão"
   }
 }
