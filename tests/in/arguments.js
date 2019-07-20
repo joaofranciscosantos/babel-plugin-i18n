@@ -13,5 +13,5 @@ transpile('i18n("bear")', { language: 'pt' });
 transpile('i18n("bear")', { language: 'not' });
 transpile('i18n("dog", "it")', { language: 'pt' });
 transpile('oi("bear")', { language: 'pt', target: 'oi' });
-transpile('oi("bear", "en")', { language: 'pt', target: 'oi'});
-transpile('i18n("bear")', { language: undefined, target: undefined});
+transpile('oi("bear", "en")', { language: 'pt', target: 'oi' });
+transpile('i18n("bear")', { language: undefined, target: undefined });
