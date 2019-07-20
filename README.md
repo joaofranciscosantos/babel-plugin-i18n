@@ -11,7 +11,6 @@
 Efficient Multi-Language Text Translator for Babel.
 
 ## How to use
-
 ### Setup
 Install it:
 ```bash
@@ -23,8 +22,9 @@ and add it to .babelrc as plugin:
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n"]]
 }
 ```
+
 ### Plugin Options
-`source` the location of dictionary file. Defaults to `/.dictionary.json`.
+`source` the location of dictionary file. Defaults to `.dictionary.json`.
 
 `target` function that is going to do the translation. Defaults to `i18n`. 
 
@@ -34,13 +34,14 @@ and add it to .babelrc as plugin:
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "pt"}]]
 }
 ```
+
 ### API
 ```
-i18n(expression, string)
+i18n(text: string, language: string)
 ```
-`expression` javascript expression.
+`text` text to translate.
 
-`string` (optional) overrides the language set by plugin.
+`language` (optional) overrides the language set by plugin.
 
 ### Dictionary
 ```json
@@ -53,34 +54,18 @@ i18n(expression, string)
     "pt": "cão",
     "es": "perro",
     "it": "cane"
-  },
-  "water": {
-    "en": "water"
   }
 }
 ```
+
 ### Examples
-1. `i18n('dog')` transpiles to `"dog"`
+1. `i18n("dog")` transpiles to `"dog"`
 
-2. `i18n('dog', 'es')` transpiles to `"perro"`
+2. `i18n("dog", "es")` transpiles to `"perro"`
 
-3. `i18n("do"+"g", "it")` transpiles to `"cane"`
+3. `i18n(i18n("dog", "it"), "es")` transpiles to `"perro"`
 
-4. `i18n(0 || "water")` transpiles to `"water"`
-
-5. `i18n(true && i18n("dog"))` transpiles to `"dog"`
-
-6. `i18n(0 && i18n("water", "pt"))` transpiles to `0`
-
-7. `i18n({"it": "fire"})` transpiles to `undefined`
-
-8. `i18n(["dog", "3"], "pt")` transpiles to `["cão", "3"]`
-
-9. `[i18n("dog", "es"), "3"]` transpiles to `["perro", "3"]`
-
-10. `i18n(i18n(i18n("dog", "it"), "??"), "pt")` transpiles to `"dog"`
-## Tests
+### Tests
 ```bash
-npm t
+npm test
 ```
-## Future Work
