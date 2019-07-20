@@ -1,27 +1,15 @@
 const nodes = {
-  'Identifier': require('./nodes/literals/identifier'),
-  'StringLiteral': require('./nodes/literals/string-literal'),
-  'TemplateLiteral': require('./nodes/literals/template-literal'),
-  'TemplateElement': require('./nodes/literals/template-element'),
-  'NumericLiteral': require('./nodes/literals/numeric-literal'),
-  'BooleanLiteral': require('./nodes/literals/boolean-literal'),
-  'NullLiteral': require('./nodes/literals/null-literal'),
-  'LogicalExpression': require('./nodes/logical-expression'),
-  'UnaryExpression': require('./nodes/unary-expression'),
-  'BinaryExpression': require('./nodes/binary-expression'),
-  'ArrayExpression': require('./nodes/array-expression'),
-  'NewExpression': require('./nodes/new-expression'),
-  'ConditionalExpression': require('./nodes/condicional-expression'),
-  'ClassExpression': require('./nodes/class-expression'),
-  'ObjectExpression': require('./nodes/object-expression'),
-  'ObjectProperty': require('./nodes/object-property'),
+  'StringLiteral': require('./nodes/string-literal'),
+  'TemplateLiteral': require('./nodes/template-literal'),
+  'TemplateElement': require('./nodes/template-element'),
+  'NullLiteral': require('./nodes/null-literal'),
   'CallExpression': require('./nodes/call-expression')
 };
 
 const operations = (target, args, dictionary, lang, operations, evaluate) => {
   const nodeType = args && args.type;
   const node = nodes[nodeType];
-  return node ? node(target, args, dictionary, lang, operations, evaluate) : 'undefined';
+  return node ? node(target, args, dictionary, lang, operations, evaluate) : 'null';
 };
 
 module.exports = (path, {target, language, dictionary}) => {
