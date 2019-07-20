@@ -1,0 +1,15 @@
+"bear";
+"bolos";
+"bolos";
+"urso";
+"bear";
+benfas("bear");
+sporting("bear");
+"bear";
+"urso";
+"urso";
+"bear";
+"cane";
+"urso";
+"bear";
+"bear";

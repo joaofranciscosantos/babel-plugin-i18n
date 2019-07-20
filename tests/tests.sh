@@ -3,10 +3,11 @@
 OUT_FOLDER=tests/out
 mkdir -p ${OUT_FOLDER}
 
-FILE_REGEX=$1
+FILE_REGEX=$1*
 if [[ ${FILE_REGEX} == "" ]]; then
 	FILE_REGEX=*
 fi
+
 echo tests/in/${FILE_REGEX}
 
 for filename in tests/in/${FILE_REGEX}; do

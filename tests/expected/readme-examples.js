@@ -1,10 +1,3 @@
 "dog";
 "perro";
-"cane";
-"water";
-"dog";
-0;
-undefined;
-["cão", "3"];
-["perro", "3"];
-"dog";
+"perro";
