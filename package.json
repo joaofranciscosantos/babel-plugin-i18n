@@ -1,7 +1,7 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "0.0.20",
+  "version": "1.0.0",
   "description": "Efficient Multi-Language Translator for Babel",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.5.4"
+    "@babel/core": "^7.5.5"
   },
   "engines": {
     "node": "10",
