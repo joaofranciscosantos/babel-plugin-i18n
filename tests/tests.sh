@@ -3,7 +3,7 @@
 mkdir -p tests/out
 
 FILE_REGEX=$1*
-if [[ "$FILE_REGEX" == "" ]]; then
+if [ "$FILE_REGEX" == "" ]; then
 	FILE_REGEX=*
 fi
 
