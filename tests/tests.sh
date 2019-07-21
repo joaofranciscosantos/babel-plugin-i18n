@@ -1,18 +1,18 @@
 #!/bin/bash
 
-OUT_FOLDER=tests/out
-mkdir -p ${OUT_FOLDER}
+mkdir -p tests/out
 
 FILE_REGEX=$1*
-if [[ "${FILE_REGEX}" == "" ]]; then
+if [[ "$FILE_REGEX" == "" ]]; then
 	FILE_REGEX=*
 fi
 
-echo tests/in/${FILE_REGEX}
+cd tests/in
+echo ${FILE_REGEX}
 
-for filename in tests/in/${FILE_REGEX}; do
-	OUT=${OUT_FOLDER}/${filename:9}
-	EXPECTED=tests/expected/${filename:9}
+for filename in ${FILE_REGEX}; do
+	OUT=../out/${filename}
+	EXPECTED=../expected/${filename}
 	node ${filename} > ${OUT} 2>&1 | grep -i SomeError
 	if [[ -f ${EXPECTED} && -f ${OUT} ]]; then
 		diff ${EXPECTED} ${OUT}
