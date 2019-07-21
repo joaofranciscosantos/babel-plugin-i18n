@@ -1,7 +1,8 @@
+const cleanString = arg => arg.replace(/\"/g, '');
+
 module.exports = (target, args, dictionary, lang, operations) => {
   const expressions = args.expressions[0];
   let leftExpr = '';
-  let expr = '';
   let rightExpr = '';
   args.quasis && args.quasis.forEach(el => {
     if (el.tail) {
@@ -10,14 +11,15 @@ module.exports = (target, args, dictionary, lang, operations) => {
     return leftExpr += operations(target, el, dictionary, lang, operations);
   });
 
+  let expr = '';
   if (leftExpr) {
-    expr += leftExpr.replace(/\"/g, '');
+    expr += leftExpr;
   }
   if (expressions) {
-    expr += operations(target, expressions, dictionary, lang, operations).replace(/\"/g, '');
+    expr += operations(target, expressions, dictionary, lang, operations);
   }
   if (rightExpr) {
-    expr += rightExpr.replace(/\"/g, '');
+    expr += rightExpr;
   }
-  return `"${expr}"`;
+  return `"${cleanString(expr)}"`;
 };
