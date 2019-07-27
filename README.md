@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/joaofranciscosantos/babel-plugin-i18n.svg?branch=master)](https://travis-ci.org/joaofranciscosantos/babel-plugin-i18n)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbf774077a5545989adc6860033299eb)](https://app.codacy.com/app/joao.francis.santos/babel-plugin-i18n?utm_source=github.com&utm_medium=referral&utm_content=joaofranciscosantos/babel-plugin-i18n&utm_campaign=Badge_Grade_Settings)
+[![CodeFactor](https://www.codefactor.io/repository/github/joaofranciscosantos/babel-plugin-i18n/badge)](https://www.codefactor.io/repository/github/joaofranciscosantos/babel-plugin-i18n)
 [![GitHub Version](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n.svg)](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n)
 [![Npm Version](https://badge.fury.io/js/%40joaofranciscosantos%2Fbabel-plugin-i18n.svg)](https://badge.fury.io/js/%40joaofranciscosantos%2Fbabel-plugin-i18n)
 ![License](https://img.shields.io/github/license/joaofranciscosantos/babel-plugin-i18n.svg)
@@ -42,7 +43,7 @@ i18n(text: string, language: string)
 ```
 `text` text to translate.
 
-`language` (optional) overrides the language set by plugin.
+`language` *(optional)* overrides the language set by plugin.
 
 ### Dictionary
 ```json
@@ -64,7 +65,7 @@ i18n(text: string, language: string)
 
 2. `i18n("dog", "es")` transpiles to `"perro"`
 
-3. `i18n(i18n("dog", "it"), "es")` transpiles to `"perro"`
+3. `i18n(i18n("dog", "it"), "es")` transpiles to `"cane"`
 
 ### Tests
 ```bash
