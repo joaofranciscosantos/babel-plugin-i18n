@@ -6,10 +6,10 @@ const nodes = {
   'CallExpression': require('./nodes/call-expression')
 };
 
-const operations = (target, args, dictionary, lang, operations, evaluate) => {
+const operations = (target, args, dictionary, lang, operations) => {
   const nodeType = args && args.type;
   const node = nodes[nodeType];
-  return node ? node(target, args, dictionary, lang, operations, evaluate) : 'null';
+  return node ? node(target, args, dictionary, lang, operations) : 'null';
 };
 
 module.exports = (path, {target, language, dictionary}) => {

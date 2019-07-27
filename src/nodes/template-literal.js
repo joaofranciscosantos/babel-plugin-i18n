@@ -1,4 +1,4 @@
-const cleanString = arg => arg.replace(/\"/g, '');
+const cleanString = arg => arg.replace(/"/g, '');
 
 module.exports = (target, args, dictionary, lang, operations) => {
   const expressions = args.expressions[0];
