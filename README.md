@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/joaofranciscosantos/babel-plugin-i18n.svg?branch=master)](https://travis-ci.org/joaofranciscosantos/babel-plugin-i18n)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fbf774077a5545989adc6860033299eb)](https://app.codacy.com/app/joao.francis.santos/babel-plugin-i18n?utm_source=github.com&utm_medium=referral&utm_content=joaofranciscosantos/babel-plugin-i18n&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/joaofranciscosantos/babel-plugin-i18n/badge)](https://www.codefactor.io/repository/github/joaofranciscosantos/babel-plugin-i18n)
-[![GitHub Version](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n.svg)](https://badge.fury.io/gh/joaofranciscosantos%2Fbabel-plugin-i18n)
 [![Npm Version](https://badge.fury.io/js/%40joaofranciscosantos%2Fbabel-plugin-i18n.svg)](https://badge.fury.io/js/%40joaofranciscosantos%2Fbabel-plugin-i18n)
 ![License](https://img.shields.io/github/license/joaofranciscosantos/babel-plugin-i18n.svg)
 [![Dependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n)
