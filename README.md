@@ -25,11 +25,9 @@ and add it to .babelrc as plugin:
 ```
 
 ### Plugin Options
-`source` the location of dictionary file. Defaults to `.dictionary.json`.
-
-`target` function that is going to do the translation. Defaults to `i18n`. 
-
-`language` set a language. Defaults to `en`.
+- `source` the location of dictionary file. Defaults to `.dictionary.json`.
+- `target` function that is going to do the translation. Defaults to `i18n`. 
+- `language` set a language. Defaults to `en`.
 ```json
 {
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "pt"}]]
@@ -40,9 +38,8 @@ and add it to .babelrc as plugin:
 ```
 i18n(text: string, language: string)
 ```
-`text` text to translate.
-
-`language` *(optional)* overrides the language set by plugin.
+- `text` text to translate.
+- `language` *(optional)* overrides the language set by plugin.
 
 ### Dictionary
 ```json
@@ -60,11 +57,10 @@ i18n(text: string, language: string)
 ```
 
 ### Examples
-1. `i18n("dog")` transpiles to `"dog"`
-
-2. `i18n("dog", "es")` transpiles to `"perro"`
-
-3. `i18n(i18n("dog", "it"), "es")` transpiles to `"cane"`
+- `i18n("dog")` transpiles to `"dog"`
+- `i18n("dog", "es")` transpiles to `"perro"`
+- `i18n("dog", "?")` transpiles to `"dog"`
+- `i18n(i18n("dog", "it"), "es")` transpiles to `"cane"`
 
 ### Tests
 ```bash
