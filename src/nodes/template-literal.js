@@ -11,15 +11,6 @@ module.exports = (target, args, dictionary, lang, operations) => {
     return leftExpr += operations(target, el, dictionary, lang, operations);
   });
 
-  let expr = '';
-  if (leftExpr) {
-    expr += leftExpr;
-  }
-  if (expressions) {
-    expr += operations(target, expressions, dictionary, lang, operations);
-  }
-  if (rightExpr) {
-    expr += rightExpr;
-  }
-  return `"${cleanString(expr)}"`;
+  const expr = expressions && operations(target, expressions, dictionary, lang, operations) || '';
+  return `"${cleanString(leftExpr + expr + rightExpr)}"`;
 };
