@@ -1,7 +1,7 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Efficient Multi-Language Translator for Babel",
   "main": "index.js",
   "scripts": {

@@ -1,4 +1,3 @@
 "dog";
 "perro";
-"dog";
-"cane";
+"none";
