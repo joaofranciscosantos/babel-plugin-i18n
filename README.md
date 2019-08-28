@@ -65,3 +65,21 @@ i18n(text: string, language: string)
 ```bash
 npm test
 ```
+## Use Cases
+
+* Setup your multi-language source at compile time. A different build for each language.
+```json
+{
+  "env": {
+    "production:en": {
+      "plugins": [["@joaofranciscosantos/babel-plugin-i18n"]]
+    },
+    "production:it": {
+      "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "it"}]]
+    },
+    "production:fr": {
+      "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "fr"}]]
+    }
+  }
+}
+```
