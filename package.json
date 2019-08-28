@@ -1,7 +1,7 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Efficient Multi-Language Translator for Babel",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "email": "joao.francis.santos@gmail.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/joaofranciscosantos/babel-plugin-i18n#readme",
+  "homepage": "https://joaofranciscosantos.github.io/babel-plugin-i18n/",
   "bugs": "https://github.com/joaofranciscosantos/babel-plugin-i18n/issues",
   "repository": {
     "type": "git",
