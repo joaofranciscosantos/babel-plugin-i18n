@@ -1,5 +1,5 @@
-const { transpile } = require('..');
+const { executeTest } = require('..');
 
-transpile('i18n("dog")');
-transpile('i18n("dog", "es")');
-transpile('i18n("none", "?")');
+executeTest('i18n("dog")');
+executeTest('i18n("dog", "es")');
+executeTest('i18n("none", "?")');

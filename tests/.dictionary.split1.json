@@ -1,0 +1,12 @@
+{
+  "dog": {
+    "en": "dog",
+    "pt": "cão",
+    "es": "perro",
+    "it": "cane"
+  },
+  "crocodile": {
+    "pt": "crocodilo",
+    "it": "coccodrillo"
+  }
+}

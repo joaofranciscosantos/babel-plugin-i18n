@@ -1,9 +1,9 @@
-const { transpile } = require('..');
+const { executeTest } = require('..');
 
-transpile('i18n("null")');
-transpile('i18n("cão")');
-transpile('i18n("cão")');
-transpile('i18n("cão_ ")');
-transpile("i18n('cão')");
+executeTest('i18n("null")');
+executeTest('i18n("cão")');
+executeTest('i18n("cão")');
+executeTest('i18n("cão_ ")');
+executeTest("i18n('cão')");
 const randomKey = '__NOKEY_RANDOM__@_';
-transpile(`i18n("${randomKey}")`);
+executeTest(`i18n("${randomKey}")`);

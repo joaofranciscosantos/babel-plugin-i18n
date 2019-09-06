@@ -1,5 +1,10 @@
 "crocodilo";
+"crocodilo";
+"urso";
 "urso";
 " bear  ";
+" bear  ";
 " pause!";
+" pause!";
+"p oi ! !";
 "p oi ! !";

@@ -8,7 +8,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n/badge.svg?targetFile=package.json)](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n?targetFile=package.json)
 
 # babel-plugin-i18n
-
 Efficient Multi-Language Text Translator for Babel.
 
 ## How to use
@@ -25,23 +24,20 @@ and add it to .babelrc as plugin:
 ```
 
 ### Plugin Options
-- `source` the location of dictionary file. Defaults to `.dictionary.json`.
-- `target` function that is going to do the translation. Defaults to `i18n`. 
-- `language` set a language. Defaults to `en`.
+- `source` *(string | array)* the location of dictionary files. Defaults to `.dictionary.json`.
+- `target` *(string)* function that is going to do the translation. Defaults to `i18n`. 
+- `language` *(string)* set the translation language. Defaults to `en`.
 ```json
 {
-  "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "pt"}]]
+  "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {
+    "source": ["translations/en.json", "dict.json"],
+    "language": "pt"
+  }]]
 }
 ```
 
-### API
-```
-i18n(text: string, language: string)
-```
-- `text` text to translate.
-- `language` *(optional)* overrides the language set by plugin.
-
 ### Dictionary
+Must be a valid json file(s).
 ```json
 {
   "keyword": {
@@ -56,30 +52,32 @@ i18n(text: string, language: string)
 }
 ```
 
-### Examples
-- `i18n("dog")` transpiles to `"dog"`
-- `i18n("dog", "es")` transpiles to `"perro"`
-- `i18n("none", "?")` transpiles to `"none"`
+### API
+```
+i18n(text: string, language: string) : string
+```
+- `text` text to translate.
+- `language` *(optional)* overrides the language set by the plugin.
 
+### Examples
+- `i18n("dog", "es")` transpiles to `"perro"`
+- `i18n("dog")` transpiles to `"dog"`
+  - Same language, no difference in the output.
+- `i18n("none", "?")` transpiles to `"none"`
+  - Because the source files do not provide a translation for the language `?`, it returns the original text.
+  
 ### Tests
 ```bash
 npm test
 ```
-## Use Cases
 
-* Setup your multi-language source at compile time. A different build for each language.
-```json
-{
-  "env": {
-    "production:en": {
-      "plugins": [["@joaofranciscosantos/babel-plugin-i18n"]]
-    },
-    "production:it": {
-      "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "it"}]]
-    },
-    "production:fr": {
-      "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {"language": "fr"}]]
-    }
-  }
-}
+## Use Cases
+* Setup a different build for each language by setting the environment variable `BABEL_ENV`.
+```js
+// .babelrc.js
+module.exports = api => ({
+  'plugins': [['@joaofranciscosantos/babel-plugin-i18n', {
+    'language': api.env() // reads from process.env.BABEL_ENV;
+  }]]
+});
 ```

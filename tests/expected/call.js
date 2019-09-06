@@ -1,5 +1,10 @@
 "urso";
+"urso";
+"bear";
 "bear";
 "orso";
+"orso";
 "cane";
+"cane";
+"perro";
 "perro";

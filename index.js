@@ -8,8 +8,20 @@ const defaults = {
   language: 'en'
 };
 
+const readDictionarySources = (sources) => {
+  const readDictionarySource = src => JSON.parse(readFileSync(resolve(src), 'utf8'));
+  let dictionary = {};
+  if (sources && Array.isArray(sources)) {
+    sources.forEach(source => {
+      dictionary = { ...dictionary, ...readDictionarySource(source) };
+    });
+    return dictionary;
+  }
+  return readDictionarySource(sources);
+};
+
 module.exports = (context, input = {}) => {
-  const dictionary = JSON.parse(readFileSync(resolve(input.source || defaults.source), 'utf8'));
+  const dictionary = readDictionarySources(input.source || defaults.source);
   const target = input.target || defaults.target;
   const language = input.language || defaults.language;
   return {

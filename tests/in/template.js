@@ -1,7 +1,7 @@
-const { transpile } = require('..');
+const { executeTest } = require('..');
 
-transpile('i18n(`crocodile`, "pt")');
-transpile('i18n(`${"bear"}`, "pt")');
-transpile('i18n(` bear  `, "pt")');
-transpile('i18n(` pause!`)');
-transpile('i18n(`p ${"oi"} ! !`)');
+executeTest('i18n(`crocodile`, "pt")');
+executeTest('i18n(`${"bear"}`, "pt")');
+executeTest('i18n(` bear  `, "pt")');
+executeTest('i18n(` pause!`)');
+executeTest('i18n(`p ${"oi"} ! !`)');

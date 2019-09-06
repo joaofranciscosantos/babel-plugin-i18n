@@ -1,6 +1,12 @@
 "null";
+"null";
+"dog";
+"dog";
 "dog";
 "dog";
 "cão_ ";
+"cão_ ";
 "dog";
+"dog";
+"__NOKEY_RANDOM__@_";
 "__NOKEY_RANDOM__@_";

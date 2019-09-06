@@ -1,8 +1,8 @@
-const { transpile } = require('..');
+const { executeTest } = require('..');
 
-transpile('i18n(i18n("bear", "pt"), "!!")');
-transpile('i18n(i18n("bear", "??"), "es")');
-transpile('i18n(i18n("bear", "it"), "es")');
-transpile('i18n((("dog")), "it")');
-transpile('i18n(i18n("dog"), "es")');
+executeTest('i18n(i18n("bear", "pt"), "!!")');
+executeTest('i18n(i18n("bear", "??"), "es")');
+executeTest('i18n(i18n("bear", "it"), "es")');
+executeTest('i18n((("dog")), "it")');
+executeTest('i18n(i18n("dog"), "es")');
 
