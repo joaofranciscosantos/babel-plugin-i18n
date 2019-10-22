@@ -1,4 +1,8 @@
 {
+  "bear": {
+    "pt": "urso",
+    "it": "orso"
+  },
   "dog": {
     "en": "dog",
     "pt": "cão",
@@ -8,5 +12,8 @@
   "crocodile": {
     "pt": "crocodilo",
     "it": "coccodrillo"
+  },
+  "cão": {
+    "en": "dog"
   }
 }

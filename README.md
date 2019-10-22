@@ -24,7 +24,7 @@ and add it to .babelrc as plugin:
 ```
 
 ### Plugin Options
-- `source` *(string | array)* the location of dictionary files. Defaults to `.dictionary.json`.
+- `source` *(string | array)* the path to dictionary files. Defaults to `.dictionary.json`.
 - `target` *(string)* function that is going to do the translation. Defaults to `i18n`. 
 - `language` *(string)* set the translation language. Defaults to `en`.
 ```json
@@ -62,7 +62,6 @@ i18n(text: string, language: string) : string
 ### Examples
 - `i18n("dog", "es")` transpiles to `"perro"`
 - `i18n("dog")` transpiles to `"dog"`
-  - Same language, no difference in the output.
 - `i18n("none", "?")` transpiles to `"none"`
   - Because the source files do not provide a translation for the language `?`, it returns the original text.
   
@@ -77,7 +76,7 @@ npm test
 // .babelrc.js
 module.exports = api => ({
   'plugins': [['@joaofranciscosantos/babel-plugin-i18n', {
-    'language': api.env() // reads from process.env.BABEL_ENV;
+    'language': api.env() // reads from process.env.BABEL_ENV
   }]]
 });
 ```

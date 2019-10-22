@@ -2,8 +2,8 @@
 "null";
 "dog";
 "dog";
-"dog";
-"dog";
+"cão";
+"cão";
 "cão_ ";
 "cão_ ";
 "dog";

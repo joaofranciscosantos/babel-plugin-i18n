@@ -10,12 +10,18 @@ const defaults = {
 
 const readDictionarySources = (sources) => {
   const readDictionarySource = src => JSON.parse(readFileSync(resolve(src), 'utf8'));
-  let dictionary = {};
-  if (sources && Array.isArray(sources)) {
+  if (Array.isArray(sources)) {
+    const merged = {};
     sources.forEach(source => {
-      dictionary = { ...dictionary, ...readDictionarySource(source) };
+      const dictionary = readDictionarySource(source);
+      Object.keys(dictionary).map(keyword => {
+        const languages = dictionary[keyword];
+        Object.keys(languages).map(language => {
+          merged[keyword] = { ...merged[keyword], [language]: languages[language] };
+        });
+      });
     });
-    return dictionary;
+    return merged;
   }
   return readDictionarySource(sources);
 };
