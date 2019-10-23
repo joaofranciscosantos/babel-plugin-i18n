@@ -24,9 +24,10 @@ and add it to .babelrc as plugin:
 ```
 
 ### Plugin Options
-- `source` *(string | array)* the path to dictionary files. Defaults to `.dictionary.json`.
+- `source` *(array)* the path to dictionary files. Defaults to `.dictionary.json`.
 - `target` *(string)* function that is going to do the translation. Defaults to `i18n`. 
 - `language` *(string)* set the translation language. Defaults to `en`.
+
 ```json
 {
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {
@@ -38,6 +39,7 @@ and add it to .babelrc as plugin:
 
 ### Dictionary
 Must be a valid json file(s).
+
 ```json
 {
   "keyword": {
@@ -72,6 +74,7 @@ npm test
 
 ## Use Cases
 * Setup a different build for each language by setting the environment variable `BABEL_ENV`.
+
 ```js
 // .babelrc.js
 module.exports = api => ({
