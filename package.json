@@ -12,7 +12,7 @@
     "@babel/core": "^7.7.5"
   },
   "engines": {
-    "node": ">=6.x"
+    "node": ">=8.x"
   },
   "keywords": [
     "i18n",
