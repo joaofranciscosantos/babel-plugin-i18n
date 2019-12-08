@@ -1,0 +1,20 @@
+name: Babel Plugin i18n CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [6.x, 8.x, 10.x, 12.x, 13.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use node v${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Run tests
+      run: |
+        npm ci
+        npm test --if-present
+      env:
+        CI: true
