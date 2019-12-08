@@ -9,11 +9,10 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.6.4"
+    "@babel/core": "^7.7.5"
   },
   "engines": {
-    "node": "10",
-    "npm": "6"
+    "node": ">=6.x"
   },
   "keywords": [
     "i18n",
