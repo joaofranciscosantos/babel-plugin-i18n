@@ -3,14 +3,13 @@ const {resolve} = require('path');
 const entry = require('./src');
 
 const defaults = {
-  source: '.dictionary.json',
+  source: ['.dictionary.json'],
   target: 'i18n',
   language: 'en'
 };
 
-const readDictionarySources = (sources) => {
+const readDictionarySources = (sources = []) => {
   const readDictionarySource = src => JSON.parse(readFileSync(resolve(src), 'utf8'));
-  sources = Array.isArray(sources) ? sources : [sources];
   const merged = {};
   sources.forEach(source => {
     const dictionary = readDictionarySource(source);
