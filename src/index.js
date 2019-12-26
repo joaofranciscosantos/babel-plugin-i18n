@@ -13,13 +13,11 @@ const operations = (target, args, dictionary, lang, operations) => {
 };
 
 module.exports = (path, {target, language, dictionary}) => {
-  if (path.node.callee.type === 'Identifier') {
-    const calleeName = path.node.callee.name;
+  const { type, name } = path.node.callee;
+  if (type === 'Identifier' && name === target) {
     const args = path.node.arguments;
     const lang = (args && args[1] && args[1].value) || language;
-    if (calleeName === target) {
-      const result = operations(target, args[0], dictionary, lang, operations);
-      path.replaceWithSourceString(result);
-    }
+    const result = operations(target, args[0], dictionary, lang, operations);
+    path.replaceWithSourceString(result);
   }
 };

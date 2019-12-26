@@ -1,3 +1,3 @@
-module.exports = (target, args, dictionary, lang, operations) => {
+module.exports = () => {
   return null;
 };

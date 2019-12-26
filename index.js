@@ -13,9 +13,9 @@ const readDictionarySources = (sources = []) => {
   const merged = {};
   sources.forEach(source => {
     const dictionary = readDictionarySource(source);
-    Object.keys(dictionary).map(keyword => {
+    Object.keys(dictionary).forEach(keyword => {
       const languages = dictionary[keyword];
-      Object.keys(languages).map(language => {
+      Object.keys(languages).forEach(language => {
         merged[keyword] = { ...merged[keyword], [language]: languages[language] };
       });
     });
