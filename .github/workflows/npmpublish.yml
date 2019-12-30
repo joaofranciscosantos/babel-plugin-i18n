@@ -1,17 +1,23 @@
-name: Babel Plugin i18n Package Generator
+name: Package
 on:
   release:
     types: [published]
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test --if-present
+          node-version: ${{ matrix.node-version }}
+      - name: Run tests
+        shell: bash
+        run: |
+          npm ci
+          npm test
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
