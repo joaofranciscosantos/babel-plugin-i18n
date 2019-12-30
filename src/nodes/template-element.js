@@ -1,6 +1,6 @@
 const stringNode = require('./string-literal');
 
-module.exports = (target, args, dictionary, lang, operations) => {
+module.exports = (target, args, dictionary, lang) => {
   const value = args.value.cooked;
-  return stringNode(target, {value}, dictionary, lang, operations);
+  return stringNode(target, {value}, dictionary, lang);
 };
