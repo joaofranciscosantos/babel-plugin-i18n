@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.8.3"
+    "@babel/core": "^7.8.4"
   },
   "engines": {
     "node": ">=8.x"
@@ -17,6 +17,7 @@
   "keywords": [
     "i18n",
     "translator",
+    "babel",
     "babel-plugin"
   ],
   "author": {
