@@ -5,9 +5,13 @@
   "description": "Efficient Multi-Language Translator for Babel",
   "main": "index.js",
   "scripts": {
-    "test": "sh tests/tests.sh"
+    "test": "sh tests/tests.sh",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
-  "dependencies": {},
+  "dependencies": {
+    "snyk": "^1.319.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.7"
   },
@@ -30,5 +34,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/joaofranciscosantos/babel-plugin-i18n.git"
-  }
+  },
+  "snyk": true
 }
