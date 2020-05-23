@@ -7,7 +7,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n/badge.svg?targetFile=package.json)](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n?targetFile=package.json)
 
 # babel-plugin-i18n
-Efficient Multi-Language Text Translator for Babel.
+Multi-Language builder for Babel.
 
 ## How to use
 ### Setup

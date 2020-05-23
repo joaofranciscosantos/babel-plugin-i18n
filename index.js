@@ -5,7 +5,7 @@ const entry = require('./src');
 const defaults = {
   source: ['.dictionary.json'],
   target: 'i18n',
-  language: 'en'
+  language: 'en',
 };
 
 const readDictionarySources = (sources = []) => {
