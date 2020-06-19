@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.9.6"
+    "@babel/core": "^7.10.0"
   },
   "keywords": [
     "i18n",
