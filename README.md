@@ -3,30 +3,34 @@
 ![License](https://img.shields.io/github/license/joaofranciscosantos/babel-plugin-i18n.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/joaofranciscosantos/babel-plugin-i18n/badge)](https://www.codefactor.io/repository/github/joaofranciscosantos/babel-plugin-i18n)
 [![Dependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n)
-[![DevDependencies Status](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n/dev-status.svg)](https://david-dm.org/joaofranciscosantos/babel-plugin-i18n?type=dev)
 [![Known Vulnerabilities](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n/badge.svg?targetFile=package.json)](https://snyk.io/test/github/joaofranciscosantos/babel-plugin-i18n?targetFile=package.json)
 
 # babel-plugin-i18n
-Multi-Language builder for Babel.
+Multi language builds for Babel. Setup a different build for each language.
 
-## How to use
-### Setup
-Install it:
+## API
+```
+i18n(text: string, language?: string) : string
+```
+- `text` text to translate.
+- `language` *(optional)* overrides the language set by the plugin.
+
+#### Examples
+- `i18n("dog", "es")` transpiles to `"perro"`
+- `i18n("dog")` transpiles to `"doggy"`
+- `i18n("none", "?")` transpiles to `"none"`
+  - Returns the original text because no translation was provided.
+
+
+## Setup
 ```bash
-npm install --save-dev @joaofranciscosantos/babel-plugin-i18n
+npm install -D @joaofranciscosantos/babel-plugin-i18n
 ```
 and add it to .babelrc as plugin:
-```json
-{
-  "plugins": [["@joaofranciscosantos/babel-plugin-i18n"]]
-}
-```
-
-### Plugin Options
+#### Plugin options
 - `source` *(array)* the path of dictionary files. Defaults to `.dictionary.json`.
 - `target` *(string)* function that is going to do the translation. Defaults to `i18n`.
 - `language` *(string)* set the translation language. Defaults to `en`.
-
 ```json
 {
   "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {
@@ -36,16 +40,14 @@ and add it to .babelrc as plugin:
 }
 ```
 
-### Dictionary
-Must be a valid json file(s).
-
+#### Dictionary file(s)
 ```json
 {
   "keyword": {
     "language": "translation"
   },
   "dog": {
-    "en": "dog",
+    "en": "doggy",
     "pt": "cão",
     "es": "perro",
     "it": "cane"
@@ -53,32 +55,7 @@ Must be a valid json file(s).
 }
 ```
 
-### API
-```
-i18n(text: string, language: string) : string
-```
-- `text` text to translate.
-- `language` *(optional)* overrides the language set by the plugin.
-
-### Examples
-- `i18n("dog", "es")` transpiles to `"perro"`
-- `i18n("dog")` transpiles to `"dog"`
-- `i18n("none", "?")` transpiles to `"none"`
-  - Because the source files do not provide a translation for the language `?`, it returns the original text.
-
-### Tests
+## Tests
 ```bash
 npm test
-```
-
-## Use Cases
-* Setup a different build for each language by setting the environment variable `BABEL_ENV`.
-
-```js
-// .babelrc.js
-module.exports = api => ({
-  'plugins': [['@joaofranciscosantos/babel-plugin-i18n', {
-    'language': api.env() // reads from process.env.BABEL_ENV
-  }]]
-});
 ```
