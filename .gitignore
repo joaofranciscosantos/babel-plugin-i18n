@@ -1,3 +1,4 @@
 tests/out
 node_modules
 .idea
+.vs
