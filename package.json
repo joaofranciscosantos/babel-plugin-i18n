@@ -1,15 +1,16 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "1.1.4",
-  "description": "Multi-Language builder for Babel",
+  "version": "1.1.5",
+  "description": "Multi language builds for babel",
   "main": "index.js",
   "scripts": {
     "test": "sh tests/tests.sh"
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.10.0"
+    "@babel/core": "^7.12.10",
+    "jest": "^26.6.3"
   },
   "keywords": [
     "i18n",
