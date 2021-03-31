@@ -24,7 +24,12 @@ const readDictionarySources = (sources = []) => {
 };
 
 module.exports = (context, input = {}) => {
-  const dictionary = readDictionarySources(input.source || defaults.source);
+  let dictionary = {};
+  try {
+    dictionary = readDictionarySources(input.source || defaults.source);
+  } catch {
+    console.warn('[babel-plugin-i18n] no translation provided.');
+  }
   const target = input.target || defaults.target;
   const language = input.language || defaults.language;
   return {
