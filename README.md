@@ -63,3 +63,12 @@ and add to `.babelrc`:
 ```bash
 npm test
 ```
+
+## FAQ
+1. `ReferenceError: i18n is not defined`
+
+Check your build folder. You should not see the 'i18n' function. Review your babel configuration.
+
+2. `TS2304: Cannot find name 'i18n'`
+
+You should `declare var i18n: any;`
