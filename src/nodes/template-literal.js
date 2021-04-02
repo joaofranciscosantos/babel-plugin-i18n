@@ -1,15 +1,13 @@
 const cleanString = arg => arg.replace(/"/g, '');
 
 module.exports = (target, args, dictionary, lang, operations) => {
-  let leftExpr = '';
-  let rightExpr = '';
-  args.quasis && args.quasis.forEach(expr => {
+  let result = '';
+  args.quasis && args.quasis.forEach((expr, index) => {
     if (expr.tail) {
-      return rightExpr += operations(target, expr, dictionary, lang, operations);
+      return result += operations(target, expr, dictionary, lang, operations);
     }
-    return leftExpr += operations(target, expr, dictionary, lang, operations);
+    result += operations(target, expr, dictionary, lang, operations);
+    result += operations(target, args.expressions[index], dictionary, lang, operations) || '';
   });
-  const expressions = args.expressions[0];
-  const expr = expressions && operations(target, expressions, dictionary, lang, operations) || '';
-  return `"${cleanString(leftExpr + expr + rightExpr)}"`;
+  return `"${cleanString(result)}"`;
 };
