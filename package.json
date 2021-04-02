@@ -1,14 +1,15 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "1.1.9",
-  "description": "Multi language builds for babel",
+  "version": "1.1.10",
+  "description": "Multi language builds with Babel. Setup a different build for each language",
   "main": "index.js",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
-    "test": "sh tests/tests.sh"
+    "test": "jest"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.13.14",
     "jest": "^26.6.3"
