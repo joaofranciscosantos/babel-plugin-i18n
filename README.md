@@ -25,26 +25,34 @@ i18n(text: string, language?: string) : string
 npm install --save-dev @joaofranciscosantos/babel-plugin-i18n
 ```
 
-and add to `.babelrc`:
-```json
-{
-  "plugins": [["@joaofranciscosantos/babel-plugin-i18n", {
-    "source": ["translations/en.json", "translations/canada.json", "pt.json"],
-    "language": "pt"
+and add to `.babelrc.js`:
+```javascript
+module.exports = api => ({
+  plugins: [["@joaofranciscosantos/babel-plugin-i18n"]]
+});
+```
+
+to override options:
+```javascript
+module.exports = api => ({
+  plugins: [["@joaofranciscosantos/babel-plugin-i18n", {
+    source: ["translations.json", "translations/canada.json", "yo.json"],
+    target: "i18n",
+    language: "pt"
   }]]
-}
+});
 ```
 - `source` *(array)* the path with translations files. They will be all merged during resolution. Defaults to `.dictionary.json`.
-- `target` *(string)* function that is going to apply the translation. Defaults to `i18n`.
+- `target` *(string)* function that will apply the translation. Defaults to `i18n`.
 - `language` *(string)* set the translation language. Defaults to `en`.
 
 ## Examples
 - `i18n("dog", "es")` transpiles to `"perro"`
 - `i18n("dog")` transpiles to `"doggy"`
 - `i18n("none", "?")` transpiles to `"none"`
-  - Returns the original text because no translation was provided.
+  *(returns the original text because no translation was provided)*
 
-`.dictionary.json`
+and translations files must have a similar structure:
 ```json
 {
   "keyword": {
@@ -59,16 +67,13 @@ and add to `.babelrc`:
 }
 ```
 
-## Tests
-```bash
-npm test
-```
-
 ## FAQ
-1. `ReferenceError: i18n is not defined`
-
+```bash
+ReferenceError: i18n is not defined
+```
 Check your build folder. You should not see the 'i18n' function. Review your babel configuration.
 
-2. `TS2304: Cannot find name 'i18n'`
-
+```bash
+TS2304: Cannot find name 'i18n'
+```
 You should `declare var i18n: any;`
