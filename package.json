@@ -1,7 +1,7 @@
 {
   "name": "@joaofranciscosantos/babel-plugin-i18n",
   "private": false,
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "Multi language builds with Babel. Setup a different build for each language",
   "main": "index.js",
   "files": [
