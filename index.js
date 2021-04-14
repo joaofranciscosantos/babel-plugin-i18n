@@ -23,8 +23,7 @@ const readDictionarySources = (sources = []) => {
       });
     });
     return merged;
-  } catch(e) {
-    console.warn('[babel-plugin-i18n] no translations applied.');
+  } catch(e) { // no translations applied.
     return {};
   }
 };
